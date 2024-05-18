@@ -8,9 +8,8 @@ import (
 	"strings"
 )
 
-// ConvertToCSV converts EDIFACT message to CSV format
 func ConvertToCSV(edifactMessage string) (string, error) {
-	// Split EDIFACT message into segments
+
 	segments := strings.Split(edifactMessage, "'")
 
 	var csvData strings.Builder

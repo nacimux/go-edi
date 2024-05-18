@@ -12,6 +12,9 @@ func (p *EDIFACTParser) Parse(message string) (common.Message, error) {
 	segments := strings.Split(message, "'")
 	var msg common.Message
 	for _, segment := range segments {
+		if segment == "" {
+			continue // Skip empty segments
+		}
 		elements := strings.Split(segment, "+")
 		if len(elements) > 0 {
 			msg.Segments = append(msg.Segments, common.Segment{
@@ -28,5 +31,5 @@ func (p *EDIFACTParser) Serialize(message common.Message) (string, error) {
 	for _, segment := range message.Segments {
 		segments = append(segments, segment.ID+"+"+strings.Join(segment.Elements, "+"))
 	}
-	return strings.Join(segments, "'"), nil
+	return strings.Join(segments, "'") + "'", nil // Adding the trailing '
 }
