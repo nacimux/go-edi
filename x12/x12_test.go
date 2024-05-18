@@ -4,7 +4,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/nacimux/go-edi/edi/common"
+	"github.com/nacimux/go-edi/common"
 )
 
 func TestParse(t *testing.T) {

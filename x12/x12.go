@@ -3,7 +3,7 @@ package x12
 import (
 	"strings"
 
-	"github.com/nacimux/go-edi/edi/common"
+	"github.com/nacimux/go-edi/common"
 )
 
 type X12Parser struct{}

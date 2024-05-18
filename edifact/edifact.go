@@ -3,7 +3,7 @@ package edifact
 import (
 	"strings"
 
-	"github.com/nacimux/go-edi/edi/common"
+	"github.com/nacimux/go-edi/common"
 )
 
 type EDIFACTParser struct{}
@@ -13,7 +13,7 @@ func (p *EDIFACTParser) Parse(message string) (common.Message, error) {
 	var msg common.Message
 	for _, segment := range segments {
 		if segment == "" {
-			continue // Skip empty segments
+			continue // TODO : Skip empty segments or retur nan error ?
 		}
 		elements := strings.Split(segment, "+")
 		if len(elements) > 0 {
@@ -22,6 +22,9 @@ func (p *EDIFACTParser) Parse(message string) (common.Message, error) {
 				Elements: elements[1:],
 			})
 		}
+		// if len(elements) == 0 *
+		//return errors.New("segment must contain at least one element")
+
 	}
 	return msg, nil
 }

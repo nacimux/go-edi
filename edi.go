@@ -1,9 +1,9 @@
 package edi
 
 import (
-	"github.com/nacimux/go-edi/edi/common"
-	"github.com/nacimux/go-edi/edi/edifact"
-	"github.com/nacimux/go-edi/edi/x12"
+	"github.com/nacimux/go-edi/common"
+	"github.com/nacimux/go-edi/edifact"
+	"github.com/nacimux/go-edi/x12"
 )
 
 type ParserType int

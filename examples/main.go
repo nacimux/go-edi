@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/nacimux/go-edi/edi"
+	"github.com/nacimux/go-edi"
 )
 
 func main() {

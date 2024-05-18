@@ -1,2 +1,6 @@
 # go-edi
-Go EDI package for genertating parsing x12 and EDIFACT and converting them to and from csv, json and xml
+Go package for genertating, parsing, validating x12 and EDIFACT and converting them to and from csv, json and xml
+
+#TODO :
+- ADD EDI x12 & EDIFACT message validation logic
+- Add other edi standards such as TRADACOMS, HL7, and XML-based standards ?

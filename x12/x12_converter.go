@@ -8,17 +8,14 @@ import (
 	"strings"
 )
 
-// ConvertToCSV converts X12 message to CSV format
 func ConvertToCSV(x12Message string) (string, error) {
-	// Split X12 message into segments
+
 	segments := strings.Split(x12Message, "~")
 
-	// Create a CSV writer
 	var csvData strings.Builder
 	writer := csv.NewWriter(&csvData)
-	writer.Comma = ',' // Set comma as the delimiter
+	writer.Comma = ','
 
-	// Write segments to CSV
 	for _, segment := range segments {
 		fields := strings.Split(segment, "*")
 		if err := writer.Write(fields); err != nil {
@@ -30,19 +27,16 @@ func ConvertToCSV(x12Message string) (string, error) {
 	return csvData.String(), nil
 }
 
-// ConvertFromCSV converts CSV data to X12 format
 func ConvertFromCSV(csvData string) (string, error) {
-	// Create a CSV reader
-	reader := csv.NewReader(strings.NewReader(csvData))
-	reader.Comma = ',' // Set comma as the delimiter
 
-	// Read CSV records
+	reader := csv.NewReader(strings.NewReader(csvData))
+	reader.Comma = ','
+
 	records, err := reader.ReadAll()
 	if err != nil {
 		return "", err
 	}
 
-	// Concatenate CSV records into X12 message
 	var x12Message strings.Builder
 	for _, record := range records {
 		x12Message.WriteString(strings.Join(record, "*"))

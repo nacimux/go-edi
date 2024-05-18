@@ -3,7 +3,7 @@ package common_test
 import (
 	"testing"
 
-	"github.com/nacimux/go-edi/edi/common"
+	"github.com/nacimux/go-edi/common"
 )
 
 func TestSegment(t *testing.T) {
